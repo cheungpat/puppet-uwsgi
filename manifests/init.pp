@@ -54,16 +54,16 @@ class uwsgi(
   # the year of 1995, we have to suffer as well.
   # Let's install an Upstart script to be able to bypass the stupid init
   # script which comes by default.
-  if $::operatingsystem == 'Ubuntu' {
-    file { $upstart_script:
-      ensure => file,
-      owner  => 'root',
-      group  => 'root',
-      mode   => '0644',
-      source => "puppet:///modules/${module_name}/uwsgi_upstart.conf",
-      before => [Package[$package_name], Service[$service_name]],
-    }
-  }
+  #if $::operatingsystem == 'Ubuntu' {
+  #  file { $upstart_script:
+  #    ensure => file,
+  #    owner  => 'root',
+  #    group  => 'root',
+  #    mode   => '0644',
+  #    source => "puppet:///modules/${module_name}/uwsgi_upstart.conf",
+  #    before => [Package[$package_name], Service[$service_name]],
+  #  }
+  #}
 
   file { $config_file:
     ensure  => file,
